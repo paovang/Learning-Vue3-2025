@@ -8,13 +8,13 @@ import { reactive } from 'vue';
         <div class="box-login">
             <button @click="callLogin" class="btn-login">Login {{ messages.name }}</button>
         </div>
-        <button @click="callLogin" class="btn-cancel">Logout {{ messages.name }}</button>
+        <!-- <button @click="callLogin" class="btn-cancel">Logout {{ messages.name }}</button> -->
     </div>
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
 import { useLoginStore } from '../store/login.store'
-import { formatDate } from '../utils/format-date.utils';
+// import { formatDate } from '../utils/format-date.utils';
 
 const { login, messages } = useLoginStore()
 
@@ -23,8 +23,8 @@ const formLogin = reactive<any>({
     password: '',
 })
 const callLogin = async () => {
-    await formatDate();
-    // await login();
+    // await formatDate();
+    await login();
 }
 </script>
 <style lang="scss" scoped>

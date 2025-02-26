@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Test from "./views/Test.vue";
+import Banner from "./views/Banner.vue";
 import LoginPage from "./views/Login.vue";
 import { authGuard } from "./common/guard/auth.guard";
 
@@ -9,7 +9,7 @@ const router = createRouter({
     {
       path: "/admin",
       children: [
-        { path: "test", name: "test", component: Test },
+        { path: "banner", name: "banner", component: Banner },
         { path: "login", name: "login", component: LoginPage },
       ],
     },

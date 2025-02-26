@@ -24,8 +24,10 @@
 
 <script lang="ts" setup>
     import { ref, reactive } from 'vue';
-    import axios from 'axios';  
     import { onMounted } from 'vue';
+    import { useBannerStore } from '../store/banner.store'
+
+    const { updateBanner, fetchAll, data } = useBannerStore();
 
     const name = ref('pao');
     const surname = ref('vang');
@@ -46,35 +48,8 @@
     }
 
     const update = async () => {
-        await axios({
-            method: 'put',
-            url: 'https://hal-test.hal-logistics.la/api/client/home-page/' + editValue.value.id,
-            data: {
-                name: editValue.value.name
-            }
-        })
-        .then(function (response) {
-           console.log('success');
-        }).catch((err: any) => {
-            console.log('err: ', err);
-        });
+        await updateBanner(editValue);
     }   
-
-    const data = reactive({
-        banners: [] as { id: number, name: string }[],
-    });
-
-    const fetchAll = async () => {
-        await axios({
-            method: 'get',
-            url: 'https://hal-test.hal-logistics.la/api/client/home-page'
-        })
-        .then(function (response) {
-            data.banners = response.data.data.banner;
-        }).catch((err: any) => {
-            console.log('err: ', err);
-        });
-    }
 
     onMounted(async () => {
         await fetchAll();
