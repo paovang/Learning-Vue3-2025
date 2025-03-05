@@ -1,5 +1,9 @@
 {
     "messages": {
-        "success": "Success"
+        "success": "Success",
+        "validate": {
+            "name": "please enter name",
+            "surname": "please enter surname"
+        }
     }
 }
