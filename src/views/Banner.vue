@@ -9,6 +9,7 @@
         <span>
             <button @click="update">Update</button>
         </span>
+        <h1>{{ $t('messages.success') }}</h1>
         <hr>
         Show: <br/>
         <ul v-for="(data, index) in data.banners" :key="index">
@@ -31,7 +32,6 @@
 
     const name = ref('pao');
     const surname = ref('vang');
-
 
     const pao = reactive({
         name: 'pao',
