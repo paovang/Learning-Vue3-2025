@@ -8,6 +8,7 @@ const router = createRouter({
   routes: [
     {
       path: "/admin",
+      component: () => import("./components/layouts/Layout.vue"),
       children: [
         { path: "banner", name: "banner", component: Banner },
         { path: "login", name: "login", component: LoginPage },

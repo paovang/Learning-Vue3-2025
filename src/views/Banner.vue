@@ -19,6 +19,13 @@
         <span>
             <button @click="update">Update</button>
         </span>
+        <hr>
+        <br/>
+        <br/>
+        <div>
+            <BannerComponent :isProps="myData" @pao-emit="callback"/>
+        </div>
+        <hr>
         <h1>{{ $t('messages.success') }}</h1>
         <hr>
         Show: <br/>
@@ -40,11 +47,21 @@
     import { useField, useForm } from 'vee-validate';
     import { bannerSchema } from './schemas/Banner.schema';
     import { useI18n } from 'vue-i18n';
+    import BannerComponent from './components/Banner.component.vue';
 
     const { updateBanner, fetchAll, data } = useBannerStore();
 
 
     const { t } = useI18n();
+
+    const myData = reactive({
+        name: 'paovang',
+        age: 20
+    });
+
+    const callback = (e: number) => {
+        console.log('emit...', e);
+    }
 
     const pao = reactive({
         name: 'pao',
