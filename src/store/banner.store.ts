@@ -6,6 +6,7 @@ import bannerService from "../service/banner.service";
 export const useBannerStore = defineStore("bannerStore", () => {
   const data = reactive({
     banners: [] as { id: number; name: string }[],
+    isLoading: true,
   });
   const service = new bannerService();
 
@@ -31,12 +32,22 @@ export const useBannerStore = defineStore("bannerStore", () => {
     const res = await service.getAll();
     if (res) {
       data.banners = res.data.data.banner;
+      data.isLoading = false;
+    }
+  };
+
+  const deleteItem = async (id: number) => {
+    data.isLoading = true;
+    const res = await service.delete(id);
+    if (res) {
+      // await fetchAll();
     }
   };
 
   return {
     updateBanner,
     fetchAll,
+    deleteItem,
     data,
   };
 });

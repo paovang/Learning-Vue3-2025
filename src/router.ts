@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Banner from "./views/Banner.vue";
 import LoginPage from "./views/Login.vue";
+import UserPage from "./views/User.vue";
 import { authGuard } from "./common/guard/auth.guard";
 
 const router = createRouter({
@@ -12,6 +13,7 @@ const router = createRouter({
       children: [
         { path: "banner", name: "banner", component: Banner },
         { path: "login", name: "login", component: LoginPage },
+        { path: "user", name: "user", component: UserPage },
       ],
     },
   ],

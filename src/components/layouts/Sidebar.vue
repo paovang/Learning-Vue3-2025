@@ -3,13 +3,13 @@
         <img src="/logoBeer.png" />
     </div>
       <a-menu v-model:selectedKeys="selectedKeys" class="sidebar-menu" mode="inline">
-        <a-menu-item key="1">
+        <a-menu-item key="1" @click="gotoRoute('user')">
           <user-outlined />
-          <span>nav 1</span>
+          <span>User</span>
         </a-menu-item>
-        <a-menu-item key="2">
+        <a-menu-item key="2" @click="gotoRoute('banner')">
           <video-camera-outlined />
-          <span>nav 2</span>
+          <span>Banner</span>
         </a-menu-item>
         <a-menu-item key="3">
           <upload-outlined />
@@ -29,6 +29,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import {
   UserOutlined,
   TeamOutlined,
@@ -37,6 +38,18 @@ import {
 } from '@ant-design/icons-vue';
 
 const selectedKeys = ref<string[]>([]);
+
+const router = useRouter();
+
+const gotoRoute = (routeName: string) => {
+  if (routeName === 'user') {
+    router.push({ name: 'user'});
+  } else if (routeName === 'banner') {
+    router.push({ name: 'banner'});
+  } else {
+    router.push({ name: 'dashboard'});
+  }
+}
 </script>
 
 <style lang="scss" scoped>
