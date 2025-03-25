@@ -10,7 +10,7 @@ export function authGuard(router: Router) {
     } else {
       if (token) {
         if (to.name === "login") {
-          next({ name: "test" });
+          next({ name: "banner" });
         } else {
           next();
         }

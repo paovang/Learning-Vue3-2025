@@ -11,9 +11,9 @@
           <video-camera-outlined />
           <span>Banner</span>
         </a-menu-item>
-        <a-menu-item key="3">
+        <a-menu-item key="3" @click="gotoRoute('supplier')">
           <upload-outlined />
-          <span>nav 3</span>
+          <span>Supplier</span>
         </a-menu-item>
         <a-sub-menu key="sub2">
           <template #title>
@@ -46,6 +46,8 @@ const gotoRoute = (routeName: string) => {
     router.push({ name: 'user'});
   } else if (routeName === 'banner') {
     router.push({ name: 'banner'});
+  } else if (routeName === 'supplier') {
+    router.push({ name: 'supplier'});
   } else {
     router.push({ name: 'dashboard'});
   }

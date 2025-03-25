@@ -25,7 +25,7 @@ export const useLoginStore = defineStore("loginStore", () => {
           localStorage.setItem("accessToken", res.data.access_token);
           localStorage.setItem("user", JSON.stringify(res.data.authUser));
 
-          router.push("/admin/test");
+          router.push("/admin/supplier");
         } else {
           console.log("not pass");
         }
