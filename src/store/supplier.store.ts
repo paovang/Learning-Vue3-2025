@@ -38,5 +38,6 @@ export const useSupplierStore = defineStore("supplierStore", () => {
     data,
     form,
     create,
+    clearForm,
   };
 });

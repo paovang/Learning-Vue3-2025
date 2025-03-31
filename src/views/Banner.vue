@@ -82,14 +82,14 @@
         surname: t('messages.validate.surname'),
     }
 
-    const { handleSubmit: submit, errors } = useForm({
+    const { handleSubmit, errors } = useForm({
         validationSchema: bannerSchema(translatedErrorMessages)
     });
 
     const { value: brannerName } = useField<string>('name');
     const { value: surname } = useField<string>('surname');
 
-    const update = submit(async(value) => {
+    const update = handleSubmit(async(value) => {
         console.log('Submitted values:', value);
         // await updateBanner(editValue);
     });

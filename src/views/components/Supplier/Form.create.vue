@@ -41,6 +41,7 @@
 <script lang="ts" setup>
     import { useSupplierStore } from '../../../store/supplier.store'
     import { notification } from 'ant-design-vue';
+import { onMounted } from 'vue';
 
     const openNotification = () => {
         notification.open({
@@ -52,10 +53,14 @@
     };
 
 
-    const { form, create } = useSupplierStore();
+    const { form, create, clearForm } = useSupplierStore();
 
     const submit = async () => {
         await create();
         openNotification()
     }
+
+    onMounted(async () => {
+      await clearForm();
+    })
 </script>
