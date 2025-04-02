@@ -49,7 +49,7 @@
     import { useI18n } from 'vue-i18n';
     import BannerComponent from './components/Banner.component.vue';
 
-    const { updateBanner, fetchAll, data } = useBannerStore();
+    const { fetchAll, data } = useBannerStore();
 
 
     const { t } = useI18n();

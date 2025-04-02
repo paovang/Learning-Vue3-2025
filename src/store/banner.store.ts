@@ -21,7 +21,7 @@ export const useBannerStore = defineStore("bannerStore", () => {
       },
     })
       .then(function (response) {
-        console.log("success");
+        console.log("success", response);
       })
       .catch((err: any) => {
         console.log("err: ", err);

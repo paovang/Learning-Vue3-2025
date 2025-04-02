@@ -19,12 +19,11 @@ export default class BannerService {
   }
 
   async delete(id: number): Promise<AxiosResponse> {
-    console.log("id: ", id);
-    // try {
-    //   const response = await this.api.axios.get("delete/banners/" + id); // Use axios instance to make the API call
-    //   return response; // Return the response to the caller
-    // } catch (error) {
-    //   throw new Error("Error Delete banners: " + error);
-    // }
+    try {
+      const response = await this.api.axios.get("delete/banners/" + id); // Use axios instance to make the API call
+      return response; // Return the response to the caller
+    } catch (error) {
+      throw new Error("Error Delete banners: " + error);
+    }
   }
 }
