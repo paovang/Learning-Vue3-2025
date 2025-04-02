@@ -50,6 +50,11 @@ const router = createRouter({
       name: "login",
       component: LoginPage,
     },
+
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/admin/login", // หรือเปลี่ยนเป็นหน้าอื่นที่ต้องการ
+    },
   ],
 });
 
