@@ -8,6 +8,8 @@ import UpdateSupplierPage from "./views/components/Supplier/Form.update.vue";
 import { authGuard } from "./common/guard/auth.guard";
 import MyBanner from "./views/MyBanner.vue";
 import CreateMyBanner from "./views/components/Banner/Form.create.vue";
+import UpdateMyBanner from "./views/components/Banner/Form.update.vue";
+import { roleGuard } from "./common/guard/role.guard";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,11 +39,20 @@ const router = createRouter({
           path: "my-banner",
           name: "my.banner",
           component: MyBanner,
+          meta: {
+            requiredRoles: ["user", "admin"],
+          },
+          beforeEnter: roleGuard,
         },
         {
           path: "create/my-banner",
           name: "create.my.banner",
           component: CreateMyBanner,
+        },
+        {
+          path: "update/my-banner/:id",
+          name: "update.my.banner",
+          component: UpdateMyBanner,
         },
       ],
     },

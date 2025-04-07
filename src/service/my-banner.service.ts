@@ -20,6 +20,17 @@ export default class MyBannerService {
     }
   }
 
+  async getOne(id: number): Promise<AxiosResponse> {
+    try {
+      const response = await this.api.axios.get(
+        `admin/center-list-banners/${id}`
+      ); // Use axios instance to make the API call
+      return response; // Return the response to the caller
+    } catch (error) {
+      throw new Error("Error fetching banners: " + error);
+    }
+  }
+
   async create(form: any): Promise<AxiosResponse> {
     try {
       const formData = new FormData();
@@ -30,6 +41,27 @@ export default class MyBannerService {
 
       const response = await this.api.axios.post(
         "admin/center-add-banner",
+        formData
+      ); // Use axios instance to make the API call
+      return response; // Return the response to the caller
+    } catch (error) {
+      throw new Error("Error fetching banners: " + error);
+    }
+  }
+
+  async update(form: any): Promise<AxiosResponse> {
+    try {
+      const formData = new FormData();
+      if (form.imageFile) {
+        formData.append("image_file", form.imageFile);
+      }
+      formData.append("name", form.name);
+      formData.append("type", form.type);
+      formData.append("link", "");
+      formData.append("_method", "PUT");
+
+      const response = await this.api.axios.post(
+        `admin/center-edit-banner/${form.id}`,
         formData
       ); // Use axios instance to make the API call
       return response; // Return the response to the caller

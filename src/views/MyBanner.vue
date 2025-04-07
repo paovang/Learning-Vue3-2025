@@ -49,7 +49,7 @@ const create = () => {
 }
 
 const update = (id: number) => {
-    router.push({ name: 'update.supplier', params: { id: id } })
+    router.push({ name: 'update.my.banner', params: { id: id } })
 }
 
 const activeKey = ref('1');
